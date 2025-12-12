@@ -3,12 +3,15 @@ import './App.css'
 import axios from 'axios'
 import Logs from './Components/Logs';
 import ActiveUsers from './Components/ActiveUsers';
+import CofirmBox from './Components/CofirmBox';
 
 
 function App() {
   
   const [logs, setLogs] = useState(true);
   const [activeUsers, setActiveUsers] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const handleLogs = () => {
     setLogs(true);
     setActiveUsers(false);
@@ -17,7 +20,22 @@ function App() {
     setActiveUsers(true);
     setLogs(false);
   }
-  
+  const handleDelete = async () => {
+    try {
+      setOpen(true);
+      setLoading(true);
+      const response = await axios.delete('https://logs-9btd.onrender.com/delete');
+      if (response.data.success) {
+        alert('Logs deleted successfully');
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
+    finally {
+      setOpen(false);
+    }
+  }
   
   return (
     <div className='bg-[#ffffff] '>
@@ -27,6 +45,12 @@ function App() {
       </div>
       {
         logs ? <Logs/> : <ActiveUsers/>
+      }
+      <div className='fixed bottom-0 flex justify-center w-full py-1'>
+        <button className='bg-orange-500 text-black py-1 px-2 rounded font-bold' onClick={() => {setOpen(true)}}>delete logs</button>
+      </div>
+      {
+        open && (<CofirmBox close={() => setOpen(false)} handleDelete={handleDelete}/>)
       }
     </div>
   )

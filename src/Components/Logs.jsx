@@ -27,7 +27,11 @@ const Logs = () => {
         }
     }
     useEffect(() => {
-        handleLogs();
+        const delay = setTimeout(() => {
+            handleLogs();
+        }, 200);
+
+        return () => clearTimeout(delay);
     }, [page, search])
     return (
         <>
@@ -38,7 +42,7 @@ const Logs = () => {
                 <button className='border border-slate-300 rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(logsCount / limit)))}>next</button>
             </div>
             <div className='flex justify-center items-center my-4'>
-                <input type="text" className='w-40 bg-blue-100 rounded-md border-none outline-orange-100 text-black' onChange={(e) => setSearch(e.target.value)}/>
+                <input type="text" className='w-40 bg-blue-100 rounded-md border-none outline-orange-100 text-black' onChange={(e) => setSearch(e.target.value)} />
             </div>
             {
                 loading ? (
