@@ -24,7 +24,7 @@ function App() {
     try {
       setOpen(true);
       setLoading(true);
-      const response = await axios.delete('https://logs-9btd.onrender.com/delete');
+      const response = await axios.delete('https://logs-uhwy.onrender.com/delete');
       if (response.data.success) {
         alert('Logs deleted successfully');
       }
