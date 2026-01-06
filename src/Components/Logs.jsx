@@ -5,7 +5,7 @@ import Loader from './Loader';
 const Logs = () => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const [limit] = useState(50);
+    const [limit] = useState(100);
     const [logs, setLogs] = useState([]);
     const [logsCount, setLogsCount] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ const Logs = () => {
 
                             <tbody>
                                 {logs.map((user, index) => (
-                                    <tr key={user._id} classname={`${user.status===500 && "bg-red-400 text-white" }`}>
+                                    <tr key={user._id} className={`${user.status===500 && "bg-red-400 text-white" }`}>
                                         <td className="border border-orange-300 px-2 py-1">{index + 1}</td>
                                         <td className="border border-orange-300 px-2 py-1">{user.number}</td>
                                         <td className="border border-orange-300 px-2 py-1">{user.time}</td>
