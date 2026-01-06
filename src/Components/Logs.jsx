@@ -14,7 +14,7 @@ const Logs = () => {
         try {
             setLoading(true);
             console.log(page + "page inside")
-            const response = await axios.get('https://logs-uhwy.onrender.com/getLogs', { params: { page, limit, search } });
+            const response = await axios.get('https://database-9qqy.onrender.com/getLogs', { params: { page, limit, search } });
             if (response.data.success) {
                 setLogs(response.data.logs);
                 setLogsCount(response.data.count);
