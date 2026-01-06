@@ -12,7 +12,7 @@ const ActiveUsers = () => {
     const handleActiveUsers = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('https://logs-uhwy.onrender.com/totalUsers', { params: { page, limit, search } });
+            const response = await axios.get('https://database-9qqy.onrender.com/totalUsers', { params: { page, limit, search } });
             if (response.data.success) {
                 setActiveUsers(response.data.totalUsers);
                 setActiveUsersCount(response.data.count);
