@@ -62,7 +62,16 @@ const Logs = () => {
 
                             <tbody>
                                 {logs.map((user, index) => (
-                                    <tr key={user._id} className={`${user.status===500 && "bg-red-400 text-white" }`}>
+                                    <tr
+  key={user._id}
+  className={
+    user.status === 500
+      ? "bg-red-400 text-white"
+      : user.status === 300
+      ? "bg-yellow-400 text-black"
+      : ""
+  }
+>
                                         <td className="border border-orange-300 px-2 py-1">{index + 1}</td>
                                         <td className="border border-orange-300 px-2 py-1">{user.number}</td>
                                         <td className="border border-orange-300 px-2 py-1">{user.time}</td>
