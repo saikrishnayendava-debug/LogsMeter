@@ -38,16 +38,16 @@ function App() {
   }
   
   return (
-    <div className='bg-[#ffffff] '>
-      <div className='w-full flex justify-around py-2 border-b border-slate-300'>
-        <button className='bg-orange-500 text-black  w-30 rounded p-1 font-bold' onClick={handleLogs}>Logs</button>
-        <button className='bg-orange-500 text-black w-30 rounded p-1 font-bold' onClick={handleActiveUsers}>Active Users</button>
+    <div className='bg-black text-slate-200 h-screen text-sm font-extrabold'>
+      <div className='w-full flex justify-around py-2 border-b border-[#222528]'>
+        <button className='bg-[#03ff81] text-black  w-30 rounded p-1 ' onClick={handleLogs}>Logs</button>
+        <button className='bg-[#03ff81] text-black w-30 rounded p-1 ' onClick={handleActiveUsers}>Active Users</button>
       </div>
       {
         logs ? <Logs/> : <ActiveUsers/>
       }
       <div className='fixed bottom-0 flex justify-center w-full py-1'>
-        <button className='bg-orange-500 text-black py-1 px-2 rounded font-bold' onClick={() => {setOpen(true)}}>delete logs</button>
+        <button className='bg-[#03ff81] text-black py-1 px-2 rounded ' onClick={() => {setOpen(true)}}>delete logs</button>
       </div>
       {
         open && (<CofirmBox close={() => setOpen(false)} handleDelete={handleDelete}/>)
