@@ -57,8 +57,8 @@ const Logs = () => {
                                     <th className="border  px-2 py-1">S.No</th>
                                     <th className="border  px-2 py-1">Number</th>
                                     <th className="border  px-2 py-1">Time</th>
+                                    <th className="border  px-2 py-1">Response</th>
                                     <th className="border  px-2 py-1">Server</th>
-
                                 </tr>
                             </thead>
 
@@ -68,7 +68,7 @@ const Logs = () => {
                                         key={user._id}
                                         className={
                                             user.status === 500
-                                                ? "bg-red-700/30 text-slate-200"
+                                                ? "bg-red-700/20 text-slate-200"
                                                 : user.status === 300
                                                     ? "bg-green-950 text-slate-200"
                                                     : "bg-[#0a0a0a] text-slate-200"
@@ -77,6 +77,7 @@ const Logs = () => {
                                         <td className="border border-[#222528] px-2 py-1 ">{index + 1}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.number}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.time}</td>
+                                        <td className={`border border-[#222528] px-2 py-1 ${user.response < 8 && "bg-green-300"} `}>{user.response}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.server}</td>
                                     </tr>
                                 ))}
