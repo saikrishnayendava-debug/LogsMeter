@@ -77,7 +77,7 @@ const Logs = () => {
                                         <td className="border border-[#222528] px-2 py-1 ">{index + 1}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.number}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.time}</td>
-                                        <td className={`border border-[#222528] px-2 py-1 ${user.response < 8 && "bg-green-300"} `}>{user.response}</td>
+                                        <td className={`border border-[#222528] px-2 py-1 ${user.response < 8 && "bg-green-500 text-black"} `}>{user.response}</td>
                                         <td className="border border-[#222528] px-2 py-1 ">{user.server}</td>
                                     </tr>
                                 ))}
