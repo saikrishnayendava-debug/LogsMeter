@@ -52,15 +52,7 @@ const Logs = () => {
                 )
                     : (
                         <table className="table-auto border-collapse border border-[#222528] w-full text-sm">
-                            <thead>
-                                <tr className="bg-blue-600 text-black font-bold">
-                                    <th className="border  px-2 py-1">S.No</th>
-                                    <th className="border  px-2 py-1">Number</th>
-                                    <th className="border  px-2 py-1">Time</th>
-                                    <th className="border  px-2 py-1">Response</th>
-                                    <th className="border  px-2 py-1">Server</th>
-                                </tr>
-                            </thead>
+                            
 
                             <tbody>
                                 {logs.map((user, index) => (
