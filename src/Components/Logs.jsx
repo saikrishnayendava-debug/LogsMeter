@@ -60,7 +60,7 @@ const Logs = () => {
                                         key={user._id}
                                         className={
                                             user.status === 500
-                                                ? "bg-red-700/20 text-slate-200"
+                                                ? "bg-red-900 text-slate-200"
                                                 : user.status === 300
                                                     ? "bg-green-950 text-slate-200"
                                                     : "bg-[#0a0a0a] text-slate-200"
