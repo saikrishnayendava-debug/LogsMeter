@@ -35,14 +35,14 @@ const Logs = () => {
     }, [page, search])
     return (
         <>
-            <div className='flex justify-evenly mt-5'>
-                <button className='border border-slate-300 rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.max(1, prev - 1))} >previous</button>
-                <p className='border border-slate-300 rounded w-fit px-4 text-sm font-bold'>page: {page}</p>
-                <p className='border border-slate-300 rounded w-fit px-4 text-sm font-bold'>count: {logsCount}</p>
-                <button className='border border-slate-300 rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(logsCount / limit)))}>next</button>
+            <div className='flex justify-evenly mt-5 text-slate-200'>
+                <button className='border border-[#222528] rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.max(1, prev - 1))} >previous</button>
+                <p className='border border-[#222528] rounded w-fit px-4 text-sm font-bold'>page: {page}</p>
+                <p className='border border-[#222528] rounded w-fit px-4 text-sm font-bold'>count: {logsCount}</p>
+                <button className='border border-[#222528] rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(logsCount / limit)))}>next</button>
             </div>
             <div className='flex justify-center items-center my-4'>
-                <input type="text" className='w-40 bg-blue-100 rounded-md border-none outline-orange-100 text-black' onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" className=' bg-black border border-[#222528] rounded-md  outline-none text-slate-200 p-2' onChange={(e) => setSearch(e.target.value)} />
             </div>
             {
                 loading ? (
@@ -51,30 +51,33 @@ const Logs = () => {
                     </div>
                 )
                     : (
-                        <table className="table-auto border-collapse border border-orange-300 w-full text-sm">
+                        <table className="table-auto border-collapse border border-[#222528] w-full text-sm">
                             <thead>
-                                <tr className="bg-orange-100 text-slate-900 font-bold">
-                                    <th className="border border-orange-300 px-2 py-1">S.No</th>
-                                    <th className="border border-orange-300 px-2 py-1">Number</th>
-                                    <th className="border border-orange-300 px-2 py-1">Time</th>
+                                <tr className="bg-white text-slate-900 font-bold">
+                                    <th className="border  px-2 py-1">S.No</th>
+                                    <th className="border  px-2 py-1">Number</th>
+                                    <th className="border  px-2 py-1">Time</th>
+                                    <th className="border  px-2 py-1">Server</th>
+
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {logs.map((user, index) => (
                                     <tr
-  key={user._id}
-  className={
-    user.status === 500
-      ? "bg-red-400 text-white"
-      : user.status === 300
-      ? "bg-yellow-400 text-black"
-      : ""
-  }
->
-                                        <td className="border border-orange-300 px-2 py-1">{index + 1}</td>
-                                        <td className="border border-orange-300 px-2 py-1">{user.number}</td>
-                                        <td className="border border-orange-300 px-2 py-1">{user.time}</td>
+                                        key={user._id}
+                                        className={
+                                            user.status === 500
+                                                ? "bg-red-500/30 text-white"
+                                                : user.status === 300
+                                                    ? "bg-yellow-400 text-white"
+                                                    : ""
+                                        }
+                                    >
+                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{index + 1}</td>
+                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.number}</td>
+                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.time}</td>
+                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.server}</td>
                                     </tr>
                                 ))}
                             </tbody>
