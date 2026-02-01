@@ -53,7 +53,7 @@ const Logs = () => {
                     : (
                         <table className="table-auto border-collapse border border-[#222528] w-full text-sm">
                             <thead>
-                                <tr className="bg-white text-slate-900 font-bold">
+                                <tr className="bg-blue-600 text-black font-bold">
                                     <th className="border  px-2 py-1">S.No</th>
                                     <th className="border  px-2 py-1">Number</th>
                                     <th className="border  px-2 py-1">Time</th>
@@ -68,16 +68,16 @@ const Logs = () => {
                                         key={user._id}
                                         className={
                                             user.status === 500
-                                                ? "bg-red-500/30 text-white"
+                                                ? "bg-red-700/30 text-slate-200"
                                                 : user.status === 300
-                                                    ? "bg-yellow-400 text-white"
-                                                    : ""
+                                                    ? "bg-green-950 text-slate-200"
+                                                    : "bg-[#0a0a0a] text-slate-200"
                                         }
                                     >
-                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{index + 1}</td>
-                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.number}</td>
-                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.time}</td>
-                                        <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.server}</td>
+                                        <td className="border border-[#222528] px-2 py-1 ">{index + 1}</td>
+                                        <td className="border border-[#222528] px-2 py-1 ">{user.number}</td>
+                                        <td className="border border-[#222528] px-2 py-1 ">{user.time}</td>
+                                        <td className="border border-[#222528] px-2 py-1 ">{user.server}</td>
                                     </tr>
                                 ))}
                             </tbody>
