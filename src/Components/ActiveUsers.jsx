@@ -38,16 +38,16 @@ const ActiveUsers = () => {
     return (
         <>
             <div className='flex justify-evenly mt-5'>
-                <button className='border border-slate-300 rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.max(1, prev - 1))} >previous</button>
-                <p className='border border-slate-300 rounded w-fit px-4 text-sm font-bold'>page: {page}</p>
+                <button className='border border-[#222528] rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.max(1, prev - 1))} >previous</button>
+                <p className='border border-[#222528] rounded w-fit px-4 text-sm font-bold'>page: {page}</p>
 
-                <p className='border border-slate-300 rounded w-25 text-sm font-bold'>count {activeUsersCount}</p>
-                <button className='border border-slate-300 rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(activeUsersCount / limit)))}>next</button>
+                <p className='border border-[#222528] rounded w-25 text-sm font-bold'>count {activeUsersCount}</p>
+                <button className='border border-[#222528] rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(activeUsersCount / limit)))}>next</button>
 
 
             </div>
             <div className='flex justify-center items-center my-4'>
-                <input type="text" className='w-40 bg-blue-100 rounded-md border-none outline-orange-500 text-black' onChange={(e) => setSearch(e.target.value)}/>
+                <input type="text" className='bg-black border border-[#222528] rounded-md  outline-none text-slate-200 p-2' onChange={(e) => setSearch(e.target.value)}/>
             </div>
                 
             {
@@ -56,21 +56,21 @@ const ActiveUsers = () => {
                         <Loader />
                     </div>
                 ) : (
-                    <table className="table-auto border-collapse border border-orange-300 w-full text-sm mt-5">
+                    <table className="table-auto border-collapse border border-[#222528] w-full text-sm mt-5">
                         <thead>
-                            <tr className="bg-orange-100">
-                                <th className="border border-orange-300 px-2 py-1">S.No</th>
-                                <th className="border border-orange-300 px-2 py-1">Number</th>
-                                <th className="border border-orange-300 px-2 py-1">Time</th>
+                            <tr className="bg-white text-slate-900">
+                                <th className="border border-[#222528] px-2 py-1">S.No</th>
+                                <th className="border border-[#222528] px-2 py-1">Number</th>
+                                <th className="border border-[#222528] px-2 py-1">Time</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {activeUsers.map((user, index) => (
                                 <tr key={user._id}>
-                                    <td className="border border-orange-300 px-2 py-1">{index + 1}</td>
-                                    <td className="border border-orange-300 px-2 py-1">{user.number}</td>
-                                    <td className="border border-orange-300 px-2 py-1">{user.time}</td>
+                                    <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{index + 1}</td>
+                                    <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.number}</td>
+                                    <td className="border border-[#222528] px-2 py-1 bg-[#0a0a0a] text-slate-200">{user.time}</td>
                                 </tr>
                             ))}
                         </tbody>
