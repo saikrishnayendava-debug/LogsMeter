@@ -58,7 +58,7 @@ const ActiveUsers = () => {
                 ) : (
                     <table className="table-auto border-collapse border border-[#222528] w-full text-sm mt-5">
                         <thead>
-                            <tr className="bg-white text-slate-900">
+                            <tr className="bg-blue-600 text-black font-bold">
                                 <th className="border border-[#222528] px-2 py-1">S.No</th>
                                 <th className="border border-[#222528] px-2 py-1">Number</th>
                                 <th className="border border-[#222528] px-2 py-1">Time</th>
