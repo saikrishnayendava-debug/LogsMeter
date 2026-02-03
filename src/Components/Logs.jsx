@@ -10,6 +10,7 @@ const Logs = () => {
     const [logsCount, setLogsCount] = useState(0);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
+    const [live, setLive] = useState(false);
     const handleLogs = async () => {
         try {
             setLoading(true);
@@ -26,6 +27,9 @@ const Logs = () => {
             setLoading(false);
         }
     }
+    const handleLive = () => {
+        setLive(!live); 
+    }
     useEffect(() => {
         const delay = setTimeout(() => {
             handleLogs();
@@ -33,6 +37,13 @@ const Logs = () => {
 
         return () => clearTimeout(delay);
     }, [page, search])
+    useEffect(()=> {
+        if (!live) return;
+        const interval = setInterval(() =>{
+            handleLogs();
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [live])
     return (
         <>
             <div className='flex justify-evenly mt-5 text-slate-200'>
@@ -41,8 +52,9 @@ const Logs = () => {
                 <p className='border border-[#222528] rounded w-fit px-4 text-sm font-bold'>count: {logsCount}</p>
                 <button className='border border-[#222528] rounded w-25 text-sm font-bold' onClick={() => setPage((prev) => Math.min(prev + 1, Math.ceil(logsCount / limit)))}>next</button>
             </div>
-            <div className='flex justify-center items-center my-4'>
+            <div className='flex justify-center items-center gap-5 my-4'>
                 <input type="text" className=' bg-black border border-[#222528] rounded-md  outline-none text-slate-200 p-2' onChange={(e) => setSearch(e.target.value)} />
+                <div className={`bg-slate-800 text-white py-3 rounded-2xl w-20 text-center ${live && "animate-pulse "}`} onClick={handleLive}>Live</div>
             </div>
             {
                 loading ? (
